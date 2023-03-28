@@ -30,21 +30,16 @@ print(Auto.birthday(auto))
 
 import time
 
-class Auto:
-
-
-    def move(self):
-        print('move')
-
-    def load(self):
-        time.sleep(1)
-        print('load')
-        time.sleep(1)
 
 class Truck(Auto):
 
     def __init__(self, max_load):
         self.max_load = max_load
+
+    def load(self):
+        time.sleep(1)
+        print('load')
+        time.sleep(1)
 
     def move(self):
         super().move()
