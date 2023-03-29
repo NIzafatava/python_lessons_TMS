@@ -388,10 +388,12 @@
 
 # 13.List Overlap
 
-a = 'vbsbvfffv'
-b = 'vvoafh'
-a = set(a)
-b = set(b)
-c = list(set(a).intersection(set(b)))
-print(c)
+# a = 'vbsbvfffv'
+# b = 'vvoafh'
+# a = set(a)
+# b = set(b)
+# c = list(set(a).intersection(set(b)))
+# print(c)
+
+
 
