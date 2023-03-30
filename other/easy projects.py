@@ -186,25 +186,137 @@ from functools import wraps
 # print(add(5, 3))
 
 
-def cache_func(func: Callable) -> Callable:
-    cache_ = {}
-    @wraps(func)
-    def inner(*args, **kwargs):
-        cache_items = args + tuple(kwargs.items())
-        if cache_items in cache_:
-            return
-        cache_[cache_items] = func(*args, **kwargs)
-        return func(*args, **kwargs)
-    return inner
+# def cache_func(func: Callable) -> Callable:
+#     cache_ = {}
+#     @wraps(func)
+#     def inner(*args, **kwargs):
+#         cache_items = args + tuple(kwargs.items())
+#         if cache_items in cache_:
+#             return
+#         cache_[cache_items] = func(*args, **kwargs)
+#         return func(*args, **kwargs)
+#     return inner
+#
+# @cache
+# def add(a: int,b: int) -> int:
+#     print('выполняем тело функции add')
+#     return a + b
+#
+# print(add(2, 3))
+# print(add(2, 3))
+# print(add(5, 3))
 
-@cache
-def add(a: int,b: int) -> int:
-    print('выполняем тело функции add')
-    return a + b
 
-print(add(2, 3))
-print(add(2, 3))
-print(add(5, 3))
+
+# 15. To DO LIST
+
+from dataclasses import dataclass
+# from enum import Enum
+# class PriorityEnum(Enum):
+#     LOW = 'low'
+#     HIGH_ = 'high'
+#     MEDIUM = 'medium'
+#
+# my_priority = PriorityEnum.HIGH_
+# my_priority2 = PriorityEnum.HIGH
+# print(my_priority == my_priority2)
+
+
+# Реализовать To Do список используя классы.
+# В задаче хранить описание и приоритет (high, medium, low, по умолчанию low).
+# Методы класса ToDoList:
+# - добавить задачу
+# - изменить описание задачи
+# - изменить приоритет задачи
+# - удалить задачу
+# - вернуть список задач, отсортированный по приоритету (сначала высокий)
+# - сохранить список в файл/загрузить из файла
+
+# from enum import Enum, IntEnum
+# import csv
+#
+# class PriorityEnum(IntEnum):
+#     LOW = 0
+#     MEDIUM = 1
+#     HIGH = 2
+#
+#
+# class Task:
+#     def __int__(self, task_name: str, task_discr: str, priority: PriorityEnum):
+#         self.task_name = task_name
+#         self.task_discr = task_discr
+#         self.priority = priority
+#
+#     def __repr__(self):
+#         return f'{self.task_name}, {self.task_discr}, {self.priority}'
+#
+#
+# class ToDoList:
+#     def __init__(self):
+#         self.to_do_list: list[Task] = []
+#
+#     def add_task(self, task: Task):
+#         self.to_do_list.append(task)
+#
+#     def change_task(self, task: Task, new_task: str):
+#         if task in self.to_do_list:
+#             self.to_do_list[self.to_do_list.index(task)].task = new_task
+#
+#     def change_priority(self, task: Task, new_priority: PriorityEnum):
+#         if task in self.to_do_list:
+#             self.to_do_list[self.to_do_list.index(task)].priority = new_priority
+#
+#     def del_task(self, task: Task):
+#         if task in self.to_do_list:
+#             self.to_do_list.remove(task)
+#
+#     def sort_task(self) -> list[Task]:
+#         return sorted(self.to_do_list, key = lambda task: task.priority, reverse=True)
+#
+#     def save_file(self):
+#         file_name = 'task.csv'
+#         with open (file_name, 'w', encoding = utf -8) as file:
+#             writer = csv.writer(file)
+#             writer.writerow(['name', 'task', 'priority'])
+#             result = [[element.task_name, element.task_discr, element.priority] for element in self.to_do_list]
+#             writer.writerows(result)
+#
+#
+# task = Task('')
+# # task2 = Task('first2', 'first task', PriorityEnum.MEDIUM)
+# # task3 = Task('first3', 'first task', PriorityEnum.HIGH)
+# # task4 = Task('first4', 'first task', PriorityEnum.LOW)
+#
+# to_do_list = ToDoList()
+# to_do_list.sort_task()
+# to_do_list.sort_task(task)
+# to_do_list.sort_task(task2)
+# to_do_list.sort_task(task3)
+# to_do_list.sort_task(task4)
+#
+# print(to_do_list.sort_task())
+# print(to_do_list.to_do_list)
+#
+# to_do_list.change_task(task3, 'edit task')
+# print(to_do_list.sort_task())
+#
+# to_do_list.del_task(task4)
+# print(to_do_list.sort_task())
+#
+# to_do_list.change_priority(task, PrioritetEnum.HIGH)
+# print(to_do_list.sort_task())
+
+
+# to_do_list.save_file()
+
+
+
+a, b = [(10, 20), (30, 30)]
+
+print(a)
+
+
+
 
 
 
