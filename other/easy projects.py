@@ -311,10 +311,84 @@ from dataclasses import dataclass
 
 
 
-a, b = [(10, 20), (30, 30)]
+# 16. Задание по теме "Классы и объекты"
+# Задача 1
+# Создайте класс Soda (для определения типа газированной воды),
+# принимающий 1 аргумент при инициализации (отвечающий за добавку к выбираемому лимонаду).
+# В этом классе реализуйте метод show_my_drink(), выводящий на печать Газировка и {ДОБАВКА} в случае наличия добавки,
+# а иначе отобразится следующая фраза: Обычная газировка.
+# Решение
 
-print(a)
+# class Soda:
+#     def __init__(self, addition = None):
+#         self.addition = addition
+#
+#     def show_my_drink(self):
+#         if self.addition is not None:
+#             print(f'Soda and {self.addition}')
+#         else:
+#             print('Soda')
+#
+# my_soda = Soda('sigar')
+# my_soda.show_my_drink()
 
+
+# 17.Николаю требуется проверить, возможно ли из представленных отрезков условной длины сформировать треугольник.
+# Для этого он решил создать класс TriangleChecker, принимающий только положительные числа.
+# С помощью метода is_triangle() возвращаются следующие значения (в зависимости от ситуации):
+# – Ура, можно построить треугольник!;
+# – С отрицательными числами ничего не выйдет!;
+# – Нужно вводить только числа!;
+# – Жаль, но из этого треугольник не сделать.
+
+
+class TriangleChecker:
+    def __init__(self, sides):
+        self.sides = sides
+
+    def is_triangle(self):
+        if all(isinstance(side, (int, float)) for side in self.sides):
+            if all(side > 0 for side in self.sides):
+                sorted_sides = sorted(self.sides)
+                if sorted_sides[0] + sorted_sides[1] > sorted_sides[2]:
+                    return 'Ура, можно построить треугольник!'
+                return 'Жаль, но из этого треугольник не сделать'
+            return 'С отрицательными числами ничего не выйдет!'
+        return 'Нужно вводить только числа!'
+
+
+
+# 18. Евгения создала класс KgToPounds с параметром kg, куда передается определенное количество килограмм,
+# а с помощью метода to_pounds() они переводятся в фунты. Чтобы закрыть доступ к переменной “kg” она реализовала методы
+# set_kg() - для задания нового значения килограммов, get_kg()  - для вывода текущего значения кг.
+# Из-за этого возникло неудобство: нам нужно теперь использовать эти 2 метода для задания и вывода значений.
+# Помогите ей переделать класс с использованием функции property() и свойств-декораторов.
+
+
+# class KgToPounds:
+#     def __init__(self, kg):
+#         self._kg = kg
+#
+#     def to_pounds(self):
+#         return f' pounds = {self._kg/2}'
+#
+#     @property
+#     def kg(self):
+#         return self._kg
+#
+#     @kg.setter
+#     def kg(self, new_kg):
+#         if isinstance(new_kg, (int, float)):
+#             self._kg = new_kg
+#         else:
+#             raise ValueError('Килограммы задаются только числами')
+#
+# my_pounds = KgToPounds(10)
+# print(my_pounds.to_pounds())
+# my_pounds.kg = 12
+# print(my_pounds.kg)
+
+# 19.
 
 
 
