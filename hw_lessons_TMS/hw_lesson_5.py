@@ -19,14 +19,14 @@ def check_even(number: int) -> None:
 print(check_even(16))
 #
 # # способ 2
-# number1 = 4
-# number2 = 9
-# number3 = 12.5
-# number4 = 'Hello'
-# print(check_even(number1))
-# print(check_even(number2))
-# print(check_even(number3))
-# print(check_even(number4))
+number1 = 4
+number2 = 9
+number3 = 12.5
+number4 = 'Hello'
+print(check_even(number1))
+print(check_even(number2))
+print(check_even(number3))
+print(check_even(number4))
 
 
 
@@ -51,4 +51,4 @@ def pechat(n: int) -> None:
             else:
                 print(number)
 
-print(pechat(30))
+print(pechat(1))
